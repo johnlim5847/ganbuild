@@ -1,8 +1,10 @@
 # ganbuild
 
-GAN-inspired autonomous app builder. Three agents — **Planner**, **Generator**, **Evaluator** — build applications from a short description. The Generator builds features sprint-by-sprint. A separate Evaluator agent critiques each sprint through live browser interaction. Failed approaches are discarded via git; successful ones are merged. Every experiment is logged.
+Every AI builder ships the same look. Coral gradients, centered text, emoji everywhere. You've seen it. Your users have definitely seen it.
 
-Design direction is sourced from real award-winning reference sites, not generated from keyword catalogs. The Evaluator scores against those references with a strict 8/10 pass threshold.
+The problem is simple: one agent builds the thing and decides it's good. ganbuild splits those jobs. The Generator writes code. A different Evaluator opens the app in a real browser, pulls up an award-winning site next to it, and compares the two. Below 8/10? Code gets thrown out, Generator tries again. The Evaluator doesn't know which attempt it's seeing, so it can't go easy on round three.
+
+You write a few sentences about what you want. ganbuild plans it, finds real sites to pull design direction from, builds it in sprints, and checks each one in a live browser. Hover states, copy tone, the works. You approve the plan once. After that, it runs on its own.
 
 Inspired by:
 - [Anthropic's harness design for long-running apps](https://www.anthropic.com/engineering/harness-design-long-running-apps) — separated Generator/Evaluator architecture
