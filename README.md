@@ -13,14 +13,8 @@ Inspired by:
 ## Install
 
 ```bash
-# Clone and install
-git clone https://github.com/YOUR_USERNAME/ganbuild.git
-cd ganbuild
-chmod +x install.sh
-./install.sh
+npx skills add johnlim5847/ganbuild
 ```
-
-Or manually copy `SKILL.md` to `~/.claude/skills/ganbuild/SKILL.md`.
 
 ## Usage
 
