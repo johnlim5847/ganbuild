@@ -1,8 +1,6 @@
 # ganbuild
 
-GAN-inspired autonomous app builder for Claude Code.
-
-Three agents — **Planner**, **Generator**, **Evaluator** — build applications from a short description. The Generator builds features sprint-by-sprint. A separate Evaluator agent critiques each sprint through live browser interaction. Failed approaches are discarded via git; successful ones are merged. Every experiment is logged.
+GAN-inspired autonomous app builder. Three agents — **Planner**, **Generator**, **Evaluator** — build applications from a short description. The Generator builds features sprint-by-sprint. A separate Evaluator agent critiques each sprint through live browser interaction. Failed approaches are discarded via git; successful ones are merged. Every experiment is logged.
 
 Design direction is sourced from real award-winning reference sites, not generated from keyword catalogs. The Evaluator scores against those references with a strict 8/10 pass threshold.
 
@@ -10,21 +8,39 @@ Inspired by:
 - [Anthropic's harness design for long-running apps](https://www.anthropic.com/engineering/harness-design-long-running-apps) — separated Generator/Evaluator architecture
 - [Karpathy's autoresearch](https://github.com/karpathy/autoresearch) — experiment tracking, git-based keep/discard, autonomous loops
 
+## Quick start
+
+1. Install ganbuild (see below)
+2. Run `/ganbuild "a personal portfolio site"` — describe what you're building
+3. Approve the plan when prompted
+4. Watch it build, evaluate, and polish autonomously
+5. Run `/ganbuild:review` to annotate and refine
+
+Stop there. You'll know if this is for you.
+
 ## Install
 
 ```bash
 npx skills add johnlim5847/ganbuild
 ```
 
-## Usage
+ganbuild works on any agent that supports the [SKILL.md standard](https://agentskills.io/specification) (Claude Code, Codex, Gemini CLI, Cursor, Windsurf, etc.). Skills are discovered automatically.
 
-In Claude Code:
+## Works well with [gstack](https://github.com/garrytan/gstack)
+
+ganbuild uses a browser tool for design research and evaluation. If you have [gstack](https://github.com/garrytan/gstack) installed, ganbuild will automatically use its `/browse` skill (~100ms per command, persistent sessions). Otherwise it falls back to chrome MCP tools or Playwright.
+
+gstack also provides complementary skills you can run on your ganbuild output:
+- `/qa` — find and fix bugs with real browser testing
+- `/design-review` — visual QA with before/after screenshots
+- `/review` — pre-landing code review
+- `/ship` — create a PR with changelog
+
+## Usage
 
 ```
 /ganbuild "a retro arcade game collection with leaderboards"
 ```
-
-### Skills
 
 | Command | Description |
 |---------|-------------|
@@ -87,7 +103,7 @@ The Planner writes product specs only (features, user flows, data model). It nev
 
 ## Optional: Human Review with Agentation
 
-For the human review phase (Phase 3), install [agentation-mcp](https://www.agentation.com/mcp):
+For the human review phase, install [agentation-mcp](https://www.agentation.com/mcp):
 
 ```bash
 npm install -g agentation-mcp
@@ -95,10 +111,6 @@ npx agentation-mcp init
 ```
 
 This lets you annotate the live app directly in your browser. The agent watches for annotations and fixes them in real-time.
-
-## Requirements
-
-- Any AI agent that supports the SKILL.md standard (Claude Code, Codex, Gemini CLI, Cursor, Windsurf, etc.)
 
 ## Experiment Tracking
 
