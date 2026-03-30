@@ -104,7 +104,7 @@ This lets you annotate the live app directly in your browser. The agent watches 
 
 ## Requirements
 
-- [Claude Code](https://claude.ai/claude-code) CLI
+- Any AI agent that supports the SKILL.md standard (Claude Code, Codex, Gemini CLI, Cursor, Windsurf, etc.)
 
 ## Experiment Tracking
 
