@@ -20,6 +20,13 @@ Inspired by:
 
 Stop there. You'll know if this is for you.
 
+> **Tip:** ganbuild runs autonomously for a while (planning, building, evaluating, retrying). It works best with permissions pre-approved so it doesn't pause for confirmation on every file edit:
+> ```bash
+> claude --dangerously-skip-permissions
+> # or
+> claude --enable-auto-mode
+> ```
+
 ## Install
 
 ```bash
